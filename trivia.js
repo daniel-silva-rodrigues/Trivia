@@ -34,14 +34,14 @@ function markC() {
     answer = 2;
 }
 //função que submete as respostas
-function update () {
+function update() {
     if (answer === questions.expected[q]) {
         correctQuestions++;
     }
+    q++;
     qNumber.innerHTML = questions.number[q];
     qText.innerHTML = questions.text[q];
-    optionA.innerHTML = questions.first[q];
-    optionB.innerHTML = questions.second[q];
-    optionC.innerHTML = questions.third[q];
-    q++;
+    options.optionA.innerHTML = questions.first[q];
+    options.optionB.innerHTML = questions.second[q];
+    options.optionC.innerHTML = questions.third[q];
 }
