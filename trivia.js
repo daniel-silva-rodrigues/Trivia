@@ -1,5 +1,5 @@
 //declaração de variáveis
-let q = -1;
+let q = 0;
 let answer;
 let correct;
 let correctQuestions;
@@ -35,16 +35,13 @@ function markC() {
 }
 //função que submete as respostas
 function update () {
-    q++;
+    if (answer === questions.expected[q]) {
+        correctQuestions++;
+    }
     qNumber.innerHTML = questions.number[q];
     qText.innerHTML = questions.text[q];
     optionA.innerHTML = questions.first[q];
     optionB.innerHTML = questions.second[q];
     optionC.innerHTML = questions.third[q];
-    if (answer === questions.expected[q]) {
-        correct = true;
-        correctQuestions++;
-    } else {
-        correct = false
-    }
+    q++;
 }
