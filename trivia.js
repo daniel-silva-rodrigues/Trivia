@@ -5,6 +5,7 @@ let correct;
 let correctQuestions;
 let qNumber = document.getElementById("questionNumber");
 let qText = document.getElementById("questionText");
+let showCorrect = document.getElementById("showResult");
 let options = {
     optionA: document.getElementById("option1"),
     optionB: document.getElementById("option2"),
@@ -21,7 +22,6 @@ let questions = {
 //função que alterna entre a página inicial e a de perguntas
 function mudarPagina() {
     window.location.href = "perguntas.html";
-    update();
 }
 //funções que marcam as alternativas
 function markA() {
@@ -38,10 +38,15 @@ function update() {
     if (answer === questions.expected[q]) {
         correctQuestions++;
     }
-    q++;
-    qNumber.innerHTML = questions.number[q];
-    qText.innerHTML = questions.text[q];
-    options.optionA.innerHTML = questions.first[q];
-    options.optionB.innerHTML = questions.second[q];
-    options.optionC.innerHTML = questions.third[q];
+    if (q < 2) { 
+        q++;
+        qNumber.innerHTML = questions.number[q];
+        qText.innerHTML = questions.text[q];
+        options.optionA.innerHTML = questions.first[q];
+        options.optionB.innerHTML = questions.second[q];
+        options.optionC.innerHTML = questions.third[q];
+    } else {
+        showCorrect.innerHTML = correctQuestions + "/3";
+        window.location.href = "final.html";
+    }
 }
